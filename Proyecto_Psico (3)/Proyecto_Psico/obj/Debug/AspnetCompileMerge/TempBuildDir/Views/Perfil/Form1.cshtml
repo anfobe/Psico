@@ -1,0 +1,315 @@
+﻿@model Proyecto_Psico.Models.Formus
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Formulario Numero 1</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+    <script>
+        function hide() {
+            var x = document.getElementById("pregunta15");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script> @*el javascript*@
+
+    <script>
+        function hide2() {
+            var x = document.getElementById("pregunta15");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
+
+    <script>
+        function hide3() {
+            var x = document.getElementById("p7");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script> @*el javascript*@
+
+    <script>
+        function hide4() {
+            var x = document.getElementById("p7");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
+
+
+
+
+    <style>
+        .checkbox label:after,
+        .radio label:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .checkbox .cr,
+        .radio .cr {
+            position: relative;
+            display: inline-block;
+            border: 1px solid #a9a9a9;
+            border-radius: .25em;
+            width: 1.3em;
+            height: 1.3em;
+            float: left;
+            margin-right: .5em;
+        }
+
+        .radio .cr {
+            border-radius: 50%;
+        }
+
+            .checkbox .cr .cr-icon,
+            .radio .cr .cr-icon {
+                position: absolute;
+                font-size: .8em;
+                line-height: 0;
+                top: 50%;
+                left: 20%;
+            }
+
+            .radio .cr .cr-icon {
+                margin-left: 0.04em;
+            }
+
+        .checkbox label input[type="checkbox"],
+        .radio label input[type="radio"] {
+            display: none;
+        }
+
+            .checkbox label input[type="checkbox"] + .cr > .cr-icon,
+            .radio label input[type="radio"] + .cr > .cr-icon {
+                transform: scale(3) rotateZ(-20deg);
+                opacity: 0;
+                transition: all .3s ease-in;
+            }
+
+            .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+            .radio label input[type="radio"]:checked + .cr > .cr-icon {
+                transform: scale(1) rotateZ(0deg);
+                opacity: 1;
+            }
+
+            .checkbox label input[type="checkbox"]:disabled + .cr,
+            .radio label input[type="radio"]:disabled + .cr {
+                opacity: .5;
+            }
+    </style> @*el css de los radios*@
+
+</head>
+<body>
+    <div class="bodyformularios">
+            <img src="~/Recursos/logos_Mesa de trabajo 1.png" alt="UH" style="width: 170px; height: 170px; float: right; margin-left: 15px;" />
+            <div style="        background-color: #f4f6ff;
+        padding-top: 50px;
+        padding-bottom: 25px;">
+                <h1 style="text-align: center; color: #0f4c75"><strong>Universidad Hispanoamericana</strong></h1>
+                <p style="text-align: center; margin-left: 3px">
+                    A continuación, se le presentan una serie de preguntas acerca de características sociodemográficas con fines investigativos. Sírvase contestarlas con total honestidad. Recuerde que se realizará un manejo confidencial de la información sensible.
+                </p>
+            </div>
+
+            <div>
+                <div class="panel-heading text-center"><h2 style="margin-top: 15px ">Cuestionario de información sociodemográfica</h2></div>
+
+
+                @using (Html.BeginForm())
+                {
+
+                    <div class="form-group">
+                        <label>Nombre Completo:</label>
+                        @Html.TextBoxFor(x => x.Nombre, new {@class = "form-control", @Required = "Required" })
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha de Nacimiento:</label>
+                        @Html.TextBoxFor(x => x.FechaNacimiento, new { @class = "form-control", @Required = "Required" })
+                    </div>
+                    <div class="form-group">
+                        <label>Edad:</label>
+                        @Html.TextBoxFor(x => x.Edad, new { @type = "number", @class = "form-control", @Required = "Required" })
+                    </div>
+
+                    <div>
+                        <div class="form-group">
+                            <label>Sexo</label>
+
+                            <div class="radio">
+                                <label>
+                                    <input id="Sexo" type="radio" name="o3" value="True">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+                                    Masculino
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="Sexo" type="radio" name="o3" value="False">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+                                    Femenino
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Provincia:</label>
+                        @Html.DropDownListFor(x => x.Provincia, new[] {
+                                                   new SelectListItem() {Text = "SanJose",
+                                                       Value = bool.TrueString},
+                                                   new SelectListItem() {Text = "Heredia",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Cartago",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Puntarenas",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Alajuela",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Limon",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Guanacaste",
+                                                       Value = bool.FalseString}
+                                               }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                    </div>
+                    <div class="form-group">
+                        <label>Canton  de Residencia:</label>
+                        @Html.TextBoxFor(x => x.Canton, new { @class = "form-control", @Required = "Required" })
+                    </div>
+
+
+                    <div>
+                        <div class="form-group">
+                            <label>Tiene hijos?</label>
+
+                            <div class="radio">
+                                <label>
+                                    <input id="hijos" type="radio" name="o1" value="True" checked onchange="hide4()">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+                                    Si
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="hijos" type="radio" name="o1" value="False" onchange="hide3()" @*onclick="hide()"*@>
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+                                    No
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" id="p7">
+                        <label>Cuántos hijos tiene (cantidad en número, por ejemplo, 5):</label>
+                        @Html.TextBoxFor(x => x.CuantosH, new { @type = "number", @class = "form-control", @Required = "Required" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cantidad de personas que viven en la misma casa (cantidad en número, por ejemplo, 5):</label>
+                        @Html.TextBoxFor(x => x.Habitantes, new { @type = "number", @class = "form-control", @Required = "Required" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nnivel Educativo:</label>
+                        @Html.DropDownListFor(x => x.NivelEdu, new[] {
+                                                   new SelectListItem() {Text = "Primaria completa",
+                                                       Value = bool.TrueString},
+                                                   new SelectListItem() {Text = "Primaria incompleta",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Secundaria incompleta",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Secundaria completa",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Universidad incompleta",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Universidad completa",
+                                                       Value = bool.FalseString}
+                                               }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Estado Civil:</label>
+                        @Html.DropDownListFor(x => x.EstadoCivil, new[] {
+                                                   new SelectListItem() {Text = "Soltería",
+                                                       Value = bool.TrueString},
+                                                   new SelectListItem() {Text = "Unión libre",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Matrimonio",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Divorcio",
+                                                       Value = bool.FalseString},
+                                                   new SelectListItem() {Text = "Enviudez",
+                                                       Value = bool.FalseString}
+                                               }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label>Cuatrimestre en el que se encuentra cursando la mayor cantidad de materias (cantidad en número del 1 al 11):</label>
+                        @Html.TextBoxFor(x => x.CuatrimestreM, new { @type = "number", @class = "form-control", @Required = "Required" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Actualmente trabaja:</label>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="o2" value="True" checked onchange="hide2()">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+                                Si
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="o2" value="False" onchange="hide()" >
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+                                No
+                            </label>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                    <div id="pregunta15" class="form-group">
+                        <label>Horas laboradas:</label>
+                        @Html.TextBoxFor(x => x.HorasLaborales, new { @type = "number", @class = "form-control", @Required = "Required" })
+                    </div>
+
+
+                    <div class="text-center">
+                        <input class="btn btn-success" type="submit" value="Enviar" />
+                    </div>
+
+                }
+            </div>
+        </div>
+</body>
+</html>

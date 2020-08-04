@@ -1,0 +1,83 @@
+﻿@Model Proyecto_Psico.Models.FormulariosModels.Usuarios_resultados
+
+@{ 
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuarios</title>
+</head>
+<body>
+    <div>
+
+        <h2>@ViewBag.Title</h2>
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>ID Tipo Usuario</th>
+                        <th>Cedula</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Ultimavez</th>
+                        <th>Correo</th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var oElemento in Model)
+                    {
+
+                        <tr>
+
+                            <td>@oElemento.Idusuario</td>
+                            <td>@oElemento.Idtipousuario</td>
+                            <td>@oElemento.Cedula</td>
+                            <td>@oElemento.Nombre</td>
+                            <td>@oElemento.Apellido</td>
+                            <td>@oElemento.Ultimavez</td>
+                            <td>@oElemento.Correo</td>
+                            <td>
+
+                                <a class="btn btn-default" href="~/Respuestas/Usuarios_respuestas/@oElemento.Idusuario">Ver resultados</a>
+
+                            </td>
+
+                        </tr>
+
+
+                    }
+
+                </table>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <br />
+        <div style="text-align:left">
+
+            <a class="btn btn-primary" href="~/Perfil/CRUD" role="button">Regresar</a>
+
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

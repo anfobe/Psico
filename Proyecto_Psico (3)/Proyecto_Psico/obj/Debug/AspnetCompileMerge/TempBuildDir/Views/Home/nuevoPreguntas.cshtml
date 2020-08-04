@@ -1,0 +1,69 @@
+﻿@model Proyecto_Psico.Models.CrudModels.TablaPreguntas
+
+@{
+    ViewBag.Title = "nuevo preguntas";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>nuevoPreguntas</title>
+</head>
+<body>
+
+    <h2>@ViewBag.Title</h2>
+
+
+
+    @using (Html.BeginForm("nuevoPreguntas", "Home", FormMethod.Post))
+    {
+        <div class="row">
+
+
+            <div class="col-md-12">
+
+                @Html.LabelFor(d => d.Idpregunta)
+                @Html.TextBoxFor(d => d.Idpregunta, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Idpregunta, null, new { @class = "danger" })
+                <br />
+
+                @Html.LabelFor(d => d.Idformulario)
+                @Html.TextBoxFor(d => d.Idformulario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Idformulario, null, new { @class = "danger" })
+                <br />
+
+                @Html.LabelFor(d => d.Pregunta)
+                @Html.TextBoxFor(d => d.Pregunta, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Pregunta, null, new { @class = "danger" })
+                <br />
+
+                @Html.LabelFor(d => d.Idrespuesta)
+                @Html.TextBoxFor(d => d.Idrespuesta, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Idrespuesta, null, new { @class = "danger" })
+                <br />
+
+            </div>
+            <br />
+
+            <div style="text-align:right">
+
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+
+            </div>
+
+
+        </div>
+
+    }
+
+    <br />
+    <div style="text-align:left">
+
+        <a class="btn btn-primary" href="~/Home/CRUD" role="button">Regresar</a>
+
+    </div>
+
+</body>
+</html>

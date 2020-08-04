@@ -1,0 +1,1319 @@
+﻿
+@model Proyecto_Psico.Models.Formus
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<link href="~/Styles/index2.css" rel="stylesheet" />*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <title>(EEA)</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            var getMax = function () {
+                return $(document).height() - $(window).height();
+            }
+
+            var getValue = function () {
+                return $(window).scrollTop();
+            }
+
+            if ('max' in document.createElement('progress')) {
+                // Browser supports progress element
+                var progressBar = $('progress');
+
+                // Set the Max attr for the first time
+                progressBar.attr({ max: getMax() });
+
+                $(document).on('scroll', function () {
+                    // On scroll only Value attr needs to be calculated
+                    progressBar.attr({ value: getValue() });
+                });
+
+                $(window).resize(function () {
+                    // On resize, both Max/Value attr needs to be calculated
+                    progressBar.attr({ max: getMax(), value: getValue() });
+                });
+            }
+            else {
+                var progressBar = $('.progress-bar'),
+                    max = getMax(),
+                    value, width;
+
+                var getWidth = function () {
+                    // Calculate width in percentage
+                    value = getValue();
+                    width = (value / max) * 100;
+                    width = width + '%';
+                    return width;
+                }
+
+                var setWidth = function () {
+                    progressBar.css({ width: getWidth() });
+                }
+
+                $(document).on('scroll', setWidth);
+                $(window).on('resize', function () {
+                    // Need to reset the Max attr
+                    max = getMax();
+                    setWidth();
+                });
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $(document).ready(function () {
+
+            $('#flat').addClass("active");
+            $('#progressBar').addClass('flat');
+
+            $('#flat').on('click', function () {
+                $('#progressBar').removeClass().addClass('flat');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#single').on('click', function () {
+                $('#progressBar').removeClass().addClass('single');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#multiple').on('click', function () {
+                $('#progressBar').removeClass().addClass('multiple');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#semantic').on('click', function () {
+                $('#progressBar').removeClass().addClass('semantic');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+                alert('hello');
+            });
+
+            $(document).on('scroll', function () {
+
+                maxAttr = $('#progressBar').attr('max');
+                valueAttr = $('#progressBar').attr('value');
+                percentage = (valueAttr / maxAttr) * 100;
+
+                if (percentage < 49) {
+                    document.styleSheets[0].addRule('.semantic', 'color: red');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: red');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: red');
+                }
+                else if (percentage < 98) {
+                    document.styleSheets[0].addRule('.semantic', 'color: orange');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: orange');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: orange');
+                }
+                else {
+                    document.styleSheets[0].addRule('.semantic', 'color: green');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: green');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: green');
+                }
+            });
+
+        });
+    </script>
+
+    <style>
+        import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+        *, *::after, *::before {
+            box-sizing: border-box;
+        }
+
+        progress {
+            /* Positioning */
+            position: fixed;
+            left: 0;
+            top: 0;
+            /* Dimensions */
+            width: 100%;
+            height: .25em;
+            /* Reset the apperance */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /* Get rid of the default border in Firefox/Opera. */
+            border: none;
+            /* For Firefox/IE10+ */
+            background-color: transparent;
+            /* For IE10+, color of the progress bar */
+            color: red;
+        }
+
+            progress::-webkit-progress-bar {
+                background-color: transparent;
+            }
+
+        .flat::-webkit-progress-value {
+            background-color: red;
+        }
+
+        .flat::-moz-progress-bar {
+            background-color: red;
+        }
+
+        .single::-webkit-progress-value {
+            background-color: transparent;
+            background-image: -webkit-linear-gradient(left, transparent, red);
+        }
+
+        .single::-moz-progress-bar {
+            background-color: transparent;
+            background-image: -moz-linear-gradient(left, transparent, red);
+        }
+
+        .multiple::-webkit-progress-value {
+            background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(left, green, red);
+        }
+
+        .multiple::-moz-progress-bar {
+            background-image: -moz-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -moz-linear-gradient(left, green, red);
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: .25em;
+            display: block;
+        }
+
+        .progress-bar {
+            background-color: red;
+            width: 50%;
+            display: block;
+            height: inherit;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <progress value="0" id="progressBar">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+
+
+
+    <div class="bodyformularios" style="font:black ">
+        <img src="~/Recursos/logos_Mesa de trabajo 1.png" alt="UH" style="width: 170px; height: 170px; float: right; margin-left: 15px;" />
+        <div style="        background-color: #f4f6ff;
+        padding-top: 50px;
+        padding-bottom: 25px;">
+            <h1 style="text-align: center; color: #0f4c75"><strong>Universidad Hispanoamericana</strong></h1>
+            <p style="text-align: center; margin-left: 3px">
+                A continuación, va a encontrar una serie de enunciados relacionados con situaciones, acontecimientos e interpretaciones
+                que pueden provocarnos inquietud o estrés. Indique en qué medida le ponen nervioso o le inquietan a usted. Todos los ítems presentan
+                el siguiente encabezado genérico: <i>«Me pongo nervioso o me inquieto...»</i> y las respuestas opciones de respuesta
+                son: 1 = nunca; 2 = alguna vez; 3 = bastantes veces; 4 = casi siempre; 5 = siempre.
+            </p>
+        </div>
+
+        <div>
+            <div class="panel-heading text-center">
+                <h2 style="margin-top: 15px; color: #3b6978">Escala de Estresores Académicos (EEA)</h2>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+
+
+                <div class="form-group">
+                    <label>cuando me preguntan en clase:</label>
+                    @Html.DropDownListFor(x => x.b1, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+                </div>
+
+
+                <div class="form-group">
+                    <label>si tengo que hablar en voz alta en clase:</label>
+                    @Html.DropDownListFor(x => x.b2, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>al salir a la pizarra:</label>
+                    @Html.DropDownListFor(x => x.b3, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>al hacer una exposición o al hablar en público durante un cierto tiempo:</label>
+                    @Html.DropDownListFor(x => x.b4, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////cuatro
+
+
+
+                <div class="form-group">
+                    <label>al hablar de los exámenes:</label>
+                    @Html.DropDownListFor(x => x.b5, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando tengo exámenes:</label>
+                    @Html.DropDownListFor(x => x.b6, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>mientras preparo los exámenes:</label>
+                    @Html.DropDownListFor(x => x.b7, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando se acercan las fechas de los exámenes:</label>
+                    @Html.DropDownListFor(x => x.b8, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>si tengo que exponer en público una opinión:</label>
+                    @Html.DropDownListFor(x => x.b9, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando el profesor da la clase de una manera determinada y luego nos examina de un modo poco coherente con esa forma de dar la clase:</label>
+                    @Html.DropDownListFor(x => x.b10, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando los profesores no se ponen de acuerdo entre ellos (maniﬁestan claras discrepancias entre ellos en temas académicos)</label>
+                    @Html.DropDownListFor(x => x.b11, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando no me queda claro cómo he de estudiar una materia:</label>
+                    @Html.DropDownListFor(x => x.b12, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando no tengo claro qué exigen en las distintas materias:</label>
+                    @Html.DropDownListFor(x => x.b13, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando los profesores plantean trabajos, actividades o tareas que no tienen mucho que ver entre sí (que son incongruentes):</label>
+                    @Html.DropDownListFor(x => x.b14, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                <div class="form-group">
+                    <label>cuando el profesor no plantea de forma clara qué es lo que tenemos que hacer:</label>
+                    @Html.DropDownListFor(x => x.b15, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando el profesor plantea trabajos, actividades o tareas que son contradictorios entre sí:</label>
+                    @Html.DropDownListFor(x => x.b16, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando los distintos profesores esperan de nosotros cosas diferentes:</label>
+                    @Html.DropDownListFor(x => x.b17, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando el profesor espera de nosotros que sepamos cosas que no nos ha enseñado:</label>
+                    @Html.DropDownListFor(x => x.b18, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando el profesor da por hecho que tenemos conocimientos que en realidad no tenemos:</label>
+                    @Html.DropDownListFor(x => x.b19, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando el profesor plantea exámenes claramente incongruentes con lo estudiado/enseñado:</label>
+                    @Html.DropDownListFor(x => x.b20, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>cuando existe una clara falta de coherencia entre los contenidos de las distintas materias:</label>
+                    @Html.DropDownListFor(x => x.b21, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>las asignaturas que cursamos tienen poco que ver con mis expectativas:</label>
+                    @Html.DropDownListFor(x => x.b22, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>las asignaturas que cursamos tienen escaso interés:</label>
+                    @Html.DropDownListFor(x => x.b23, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>lo que estoy estudiando tiene una escasa utilidad futura:</label>
+                    @Html.DropDownListFor(x => x.b24, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                <div class="form-group">
+                    <label>las clases a las que asisto son poco prácticas:</label>
+                    @Html.DropDownListFor(x => x.b25, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por no saber si mi ritmo de aprendizaje es el adecuado:</label>
+                    @Html.DropDownListFor(x => x.b26, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por el excesivo número de asignaturas que integran el plan de estudios de mi carrera:</label>
+                    @Html.DropDownListFor(x => x.b27, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque los resultados obtenidos en los exámenes no reﬂejan, en absoluto, mi trabajo anterior de preparación ni el esfuerzo desarrollado:</label>
+                    @Html.DropDownListFor(x => x.b28, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por las demandas excesivas y variadas que se me hacen:</label>
+                    @Html.DropDownListFor(x => x.b29, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque rindo claramente por debajo de mis conocimientos:</label>
+                    @Html.DropDownListFor(x => x.b30, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por el escaso tiempo de que dispongo para estudiar adecuadamente las distintas materias:</label>
+                    @Html.DropDownListFor(x => x.b31, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por el cumplimiento de los plazos o fechas determinadas de las tareas encomendadas:</label>
+                    @Html.DropDownListFor(x => x.b32, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la excesiva cantidad de información que se me proporciona en clase, sin que se indique claramente lo fundamental:</label>
+                    @Html.DropDownListFor(x => x.b33, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por el excesivo tiempo que debo dedicarle a la realización de las actividades académicas:</label>
+                    @Html.DropDownListFor(x => x.b34, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+                <div class="form-group">
+                    <label>porque no creo que pueda hacer frente a las exigencias de la carrera que estudio:</label>
+                    @Html.DropDownListFor(x => x.b35, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no dispongo de tiempo para dedicarme a las materias todo lo necesario:</label>
+                    @Html.DropDownListFor(x => x.b36, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no creo que pueda lograr los objetivos propuestos:</label>
+                    @Html.DropDownListFor(x => x.b37, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la excesiva carga de trabajo que debo atender:</label>
+                    @Html.DropDownListFor(x => x.b38, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por el excesivo número de horas de clase diarias que tengo:</label>
+                    @Html.DropDownListFor(x => x.b39, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por el ritmo de trabajo o estudio que se nos exige:</label>
+                    @Html.DropDownListFor(x => x.b40, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque desconozco si mi progreso académico es adecuado:</label>
+                    @Html.DropDownListFor(x => x.b41, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no sé cómo hacer bien las cosas:</label>
+                    @Html.DropDownListFor(x => x.b42, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no sé qué hacer para que se reconozca mi esfuerzo y mi trabajo:</label>
+                    @Html.DropDownListFor(x => x.b43, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no tengo claro cómo conseguir que se valore mi dominio de las materias:</label>
+                    @Html.DropDownListFor(x => x.b44, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                <div class="form-group">
+                    <label>porque no tengo posibilidad alguna o muy escasa de dar mi opinión sobre la metodología de enseñanza de las materias del plan de estudios:</label>
+                    @Html.DropDownListFor(x => x.b45, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no sé qué hacer para que se reconozca mi valía personal:</label>
+                    @Html.DropDownListFor(x => x.b46, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque las posibilidades de opinar sobre el procedimiento de evaluación de las asignaturas del plan de estudios son muy escasas o nulas:</label>
+                    @Html.DropDownListFor(x => x.b47, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>porque no está en mi mano plantear los trabajos, tareas o actividades como me gustaría:</label>
+                    @Html.DropDownListFor(x => x.b48, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por los conﬂictos en las relaciones con otras personas (profesores, compañeros):</label>
+                    @Html.DropDownListFor(x => x.b49, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la excesiva competitividad existente en clase:</label>
+                    @Html.DropDownListFor(x => x.b50, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la falta de apoyo de los profesores:</label>
+                    @Html.DropDownListFor(x => x.b51, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la falta de apoyo de los compañeros:</label>
+                    @Html.DropDownListFor(x => x.b52, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la ausencia de un buen ambiente en clase:</label>
+                    @Html.DropDownListFor(x => x.b53, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label>por la existencia de favoritismos en clase:</label>
+                    @Html.DropDownListFor(x => x.b54, new[] {
+                                               new SelectListItem() {Text = "Nunca",
+                                                   Value = "Nunca"},
+                                               new SelectListItem() {Text = "Alguna vez",
+                                                   Value = "Alguna vez"},
+                                               new SelectListItem() {Text = "Bastantes veces",
+                                                   Value = "Bastantes veces"},
+                                               new SelectListItem() {Text = "Casi siempre",
+                                                   Value = "Casi siempre"},
+                                               new SelectListItem() {Text = "Siempre",
+                                                   Value = "Siempre"}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+
+
+
+
+                </div>
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                <div class="text-center">
+
+                    <input class="btn btn-success" type="submit" value="Enviar" />
+                </div>
+
+            }
+
+
+
+        </div>
+
+    </div>
+</body>
+</html>

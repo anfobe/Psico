@@ -1,0 +1,180 @@
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Proyecto_Psico.dll.config
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Proyecto_Psico.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Proyecto_Psico.pdb
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csc.exe
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csc.exe.config
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csc.rsp
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csi.exe
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csi.exe.config
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csi.rsp
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.Managed.Core.targets
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.AppContext.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Collections.Immutable.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Console.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Globalization.Calendars.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.Compression.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.FileSystem.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Net.Http.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Net.Sockets.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Reflection.Metadata.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.ValueTuple.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.XmlDocument.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.XPath.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\vbc.exe
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\vbc.exe.config
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\vbc.rsp
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\VBCSCompiler.exe
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\roslyn\VBCSCompiler.exe.config
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Antlr3.Runtime.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.SqlServer.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Microsoft.Web.Infrastructure.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Newtonsoft.Json.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Helpers.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Mvc.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Optimization.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Razor.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Deployment.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Razor.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\WebGrease.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.SqlServer.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Helpers.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Mvc.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Optimization.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Razor.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Deployment.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Razor.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Newtonsoft.Json.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Antlr3.Runtime.pdb
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Helpers.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Mvc.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Optimization.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Razor.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.WebPages.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.WebPages.Deployment.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.csprojAssemblyReference.cache
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.csproj.CoreCompileInputs.cache
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.csproj.CopyComplete
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.dll
+F:\Universidad\Programación V\Proyecto\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.pdb
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Proyecto_Psico.dll.config
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Proyecto_Psico.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Proyecto_Psico.pdb
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csc.exe
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csc.exe.config
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csc.rsp
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csi.exe
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csi.exe.config
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\csi.rsp
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.AppContext.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Console.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.Compression.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Net.Http.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Net.Sockets.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.ValueTuple.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.XPath.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\vbc.exe
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\vbc.exe.config
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\vbc.rsp
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\VBCSCompiler.exe
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Antlr3.Runtime.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.SqlServer.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Newtonsoft.Json.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Helpers.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Mvc.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Optimization.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Razor.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Deployment.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Razor.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\WebGrease.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\EntityFramework.SqlServer.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Helpers.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Mvc.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Optimization.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.Razor.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Deployment.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\System.Web.WebPages.Razor.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Newtonsoft.Json.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Antlr3.Runtime.pdb
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Helpers.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Mvc.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Optimization.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.Razor.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.WebPages.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.csprojAssemblyReference.cache
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.csproj.CoreCompileInputs.cache
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.csproj.CopyComplete
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.dll
+C:\Users\lorax\Documents\Proyecto_Psico\Proyecto_Psico\Proyecto_Psico\obj\Release\Proyecto_Psico.pdb

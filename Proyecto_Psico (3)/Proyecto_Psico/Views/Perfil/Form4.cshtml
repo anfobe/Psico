@@ -1,0 +1,723 @@
+﻿@model Proyecto_Psico.Models.Formus
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Calidad de vida</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            var getMax = function () {
+                return $(document).height() - $(window).height();
+            }
+
+            var getValue = function () {
+                return $(window).scrollTop();
+            }
+
+            if ('max' in document.createElement('progress')) {
+                // Browser supports progress element
+                var progressBar = $('progress');
+
+                // Set the Max attr for the first time
+                progressBar.attr({ max: getMax() });
+
+                $(document).on('scroll', function () {
+                    // On scroll only Value attr needs to be calculated
+                    progressBar.attr({ value: getValue() });
+                });
+
+                $(window).resize(function () {
+                    // On resize, both Max/Value attr needs to be calculated
+                    progressBar.attr({ max: getMax(), value: getValue() });
+                });
+            }
+            else {
+                var progressBar = $('.progress-bar'),
+                    max = getMax(),
+                    value, width;
+
+                var getWidth = function () {
+                    // Calculate width in percentage
+                    value = getValue();
+                    width = (value / max) * 100;
+                    width = width + '%';
+                    return width;
+                }
+
+                var setWidth = function () {
+                    progressBar.css({ width: getWidth() });
+                }
+
+                $(document).on('scroll', setWidth);
+                $(window).on('resize', function () {
+                    // Need to reset the Max attr
+                    max = getMax();
+                    setWidth();
+                });
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $(document).ready(function () {
+
+            $('#flat').addClass("active");
+            $('#progressBar').addClass('flat');
+
+            $('#flat').on('click', function () {
+                $('#progressBar').removeClass().addClass('flat');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#single').on('click', function () {
+                $('#progressBar').removeClass().addClass('single');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#multiple').on('click', function () {
+                $('#progressBar').removeClass().addClass('multiple');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#semantic').on('click', function () {
+                $('#progressBar').removeClass().addClass('semantic');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+                alert('hello');
+            });
+
+            $(document).on('scroll', function () {
+
+                maxAttr = $('#progressBar').attr('max');
+                valueAttr = $('#progressBar').attr('value');
+                percentage = (valueAttr / maxAttr) * 100;
+
+                if (percentage < 49) {
+                    document.styleSheets[0].addRule('.semantic', 'color: red');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: red');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: red');
+                }
+                else if (percentage < 98) {
+                    document.styleSheets[0].addRule('.semantic', 'color: orange');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: orange');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: orange');
+                }
+                else {
+                    document.styleSheets[0].addRule('.semantic', 'color: green');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: green');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: green');
+                }
+            });
+
+        });
+    </script>
+
+    <style>
+        import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+        *, *::after, *::before {
+            box-sizing: border-box;
+        }
+
+        progress {
+            /* Positioning */
+            position: fixed;
+            left: 0;
+            top: 0;
+            /* Dimensions */
+            width: 100%;
+            height: .25em;
+            /* Reset the apperance */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /* Get rid of the default border in Firefox/Opera. */
+            border: none;
+            /* For Firefox/IE10+ */
+            background-color: transparent;
+            /* For IE10+, color of the progress bar */
+            color: red;
+        }
+
+            progress::-webkit-progress-bar {
+                background-color: transparent;
+            }
+
+        .flat::-webkit-progress-value {
+            background-color: red;
+        }
+
+        .flat::-moz-progress-bar {
+            background-color: red;
+        }
+
+        .single::-webkit-progress-value {
+            background-color: transparent;
+            background-image: -webkit-linear-gradient(left, transparent, red);
+        }
+
+        .single::-moz-progress-bar {
+            background-color: transparent;
+            background-image: -moz-linear-gradient(left, transparent, red);
+        }
+
+        .multiple::-webkit-progress-value {
+            background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(left, green, red);
+        }
+
+        .multiple::-moz-progress-bar {
+            background-image: -moz-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -moz-linear-gradient(left, green, red);
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: .25em;
+            display: block;
+        }
+
+        .progress-bar {
+            background-color: red;
+            width: 50%;
+            display: block;
+            height: inherit;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    <progress value="0" id="progressBar">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+
+
+    <div class="bodyformularios">
+        <img src="~/Recursos/logos_Mesa de trabajo 1.png" alt="UH" style="width: 170px; height: 170px; float: right; margin-left: 15px;" />
+        <div style="        background-color: #f4f6ff;
+        padding-top: 50px;
+        padding-bottom: 25px;">
+            <h1 style="text-align: center; color: #0f4c75"><strong>Universidad Hispanoamericana</strong></h1>
+            <p style="text-align: center; margin-left: 3px">
+                Instrucciones: Este cuestionario sirve para conocer su opinión acerca de su calidad de vida, su  salud  y  otras  áreas  de  su  vida.
+                Por  favor  conteste  todas  las  preguntas.  Si  no  está  seguro/a  de  qué  respuesta  dar  a  una  pregunta,  escoja  la  que  le
+                parezca  más  apropiada.  A  veces, ésta puede ser la primera respuesta que le viene a la cabeza. Tenga presente su modo de vivir, expectativas,
+                placeres y preocupaciones. Le pedimos que piense  en  su  vida  durante  las  dos  últimas  semanas. De acuerdo a su percepción escoja uno de los números
+                de la escala del 1 al 5.
+
+            </p>
+        </div>
+
+        <div>
+            <div class="panel-heading text-center">
+                <h2 style="margin-top: 15px; color: #3b6978">Cuestionario de Calidad de vida</h2>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+
+                <div class="form-group">
+                    <label>¿Cómo calificaría su calidad de vida? </label>
+                    @Html.DropDownListFor(x => x.u1, new[] {
+                                               new SelectListItem() {Text = "Muy mala ",
+                                                   Value = "Muy mala"},
+                                               new SelectListItem() {Text = "Regular ",
+                                                   Value = "Regular"},
+                                               new SelectListItem() {Text = "Normal",
+                                                   Value = "Normal"},
+                                               new SelectListItem() {Text = "Bastante buena ",
+                                                   Value = "Bastante buena"},
+                                               new SelectListItem() {Text = "Muy buena ",
+                                                   Value = "Muy buena "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con su salud? </label>
+                    @Html.DropDownListFor(x => x.u2, new[] {
+                                               new SelectListItem() {Text = "Muy insatisfecho/a  ",
+                                                   Value = "Muy insatisfecho/a  "},
+                                               new SelectListItem() {Text = "Un pocoinsatisfecho/a ",
+                                                   Value =  "Un pocoinsatisfecho/a "},
+                                               new SelectListItem() {Text = "Lo normal ",
+                                                   Value = "Lo normal "},
+                                               new SelectListItem() {Text = "Bastante satisfecho/a",
+                                                   Value = "Bastante satisfecho/a"},
+                                               new SelectListItem() {Text = "Muy satisfecho/a  ",
+                                                   Value = "Muy satisfecho/a  "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Hasta qué punto piensa que el dolor (físico) le impide hacer lo que necesita? </label>
+                    @Html.DropDownListFor(x => x.u3, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿En qué grado necesita de un tratamiento médico para funcionar en su vida diaria? </label>
+                    @Html.DropDownListFor(x => x.u4, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cuánto disfruta de la vida?  </label>
+                    @Html.DropDownListFor(x => x.u5, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Hasta qué punto siente que su vida tiene sentido?  </label>
+                    @Html.DropDownListFor(x => x.u6, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cuál es su capacidad de concentración?</label>
+                    @Html.DropDownListFor(x => x.u7, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cuánta seguridad siente en su vida diaria? </label>
+                    @Html.DropDownListFor(x => x.u8, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de saludable es el ambiente físico a su alrededor?  </label>
+                    @Html.DropDownListFor(x => x.u9, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <h4>
+                    Las siguientes preguntas hacen referencia a si usted experimenta o fue capaz de hacer ciertas cosas en las dos últimas semanas, y en qué
+                    medida.
+                </h4>
+
+
+                <div class="form-group">
+                    <label>¿Tiene energía suficiente para la vida diaria?   </label>
+                    @Html.DropDownListFor(x => x.u10, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Es capaz de aceptar su apariencia física?   </label>
+                    @Html.DropDownListFor(x => x.u11, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Tiene suficiente dinero para cubrir sus necesidades?  </label>
+                    @Html.DropDownListFor(x => x.u12, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Dispone de la información que necesita para su vida diaria?   </label>
+                    @Html.DropDownListFor(x => x.u13, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Hasta qué punto tiene oportunidad de realizar actividades de ocio? </label>
+                    @Html.DropDownListFor(x => x.u14, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Es capaz de desplazarse de un lugar a otro?   </label>
+                    @Html.DropDownListFor(x => x.u15, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+
+                <h4>
+                    Las siguientes preguntas hacen referencia a si en las dos últimas semana ha sentido satisfecho/a y cuánto, en varios aspectos de su vida
+                </h4>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con su sueño?    </label>
+                    @Html.DropDownListFor(x => x.u16, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        ¿Cómo de satisfecho/a está con su habilidad para realizar sus actividades de la vida diaria?
+                    </label>
+                    @Html.DropDownListFor(x => x.u17, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con su capacidad de trabajo?    </label>
+                    @Html.DropDownListFor(x => x.u18, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está de sí mismo?  </label>
+                    @Html.DropDownListFor(x => x.u19, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con sus relaciones personales?   </label>
+                    @Html.DropDownListFor(x => x.u20, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con su vida sexual?    </label>
+                    @Html.DropDownListFor(x => x.u21, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con el apoyo que obtiene de sus amigos/as?  </label>
+                    @Html.DropDownListFor(x => x.u22, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está de las condiciones del lugar donde vive?   </label>
+                    @Html.DropDownListFor(x => x.u23, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        ¿Cómo de satisfecho/a está con el acceso que tiene a los servicios sanitarios?
+                    </label>
+                    @Html.DropDownListFor(x => x.u24, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cómo de satisfecho/a está con los servicios de transporte de su zona? </label>
+                    @Html.DropDownListFor(x => x.u25, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        ¿Con qué frecuencia tiene sentimientos negativos, tales como tristeza, desesperanza, ansiedad, o depresión?
+                    </label>
+                    @Html.DropDownListFor(x => x.u26, new[] {
+                                               new SelectListItem() {Text = "Nada ",
+                                                   Value = "Nada"},
+                                               new SelectListItem() {Text = "Un poco  ",
+                                                   Value = "Un poco"},
+                                               new SelectListItem() {Text = "Lo normal",
+                                                   Value = "Lo normal"},
+                                               new SelectListItem() {Text = "Bastante ",
+                                                   Value = "Bastante"},
+                                               new SelectListItem() {Text = "Extremadamente ",
+                                                   Value = "Extremadamente "}
+                                           }, "Elija una opcion", new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group ">
+                    <h4>
+                        ¿Le ha ayudado alguien a rellenar el cuestionario?
+                    </h4>
+                    @Html.TextBoxFor(x => x.u27, new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group ">
+                    <h4>
+                        ¿Cuánto tiempo ha tardado en contestarlo?
+                    </h4>
+                    @Html.TextBoxFor(x => x.u28, new { @class = "form-control", @Required = "Required" })
+                </div>
+
+                <div class="form-group ">
+                    <h4>
+                        ¿Le gustaría hacer algún comentario sobre el cuestionario?
+
+                    </h4>
+                    @Html.TextBoxFor(x => x.u29, new { @class = "form-control", @Required = "Required" })
+                </div>
+
+
+                <div class="text-center">
+
+                    <input class="btn btn-success" type="submit" value="Enviar" />
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+</body>
+</html>

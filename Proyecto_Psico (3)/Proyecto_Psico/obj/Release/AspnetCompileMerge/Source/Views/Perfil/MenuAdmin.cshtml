@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "MenuAdmin";
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MenuAdmin</title>
+    <link href="~/Styles/index2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div>
+        <div class="bodyformularios">
+            <img src="~/Recursos/logos_Mesa de trabajo 1.png" alt="UH" style="width: 170px; height: 170px; float: right; margin-left: 15px;" />
+            <div style="        background-color: #f4f6ff;
+        padding-top: 50px;
+        padding-bottom: 25px;">
+                <h1 style="text-align: center; color: #0f4c75"><strong>Universidad Hispanoamericana</strong></h1>
+                <p style="text-align: center; margin-left: 3px">
+                    Los estudiantes del curso de programación 5 en conjunto con la Escuela de Psicología trabajan para llevar a cabo
+                    el proyecto llamado <i> Calidad de vida, estrés y rendimiento académico en estudiantes universitarios</i>.
+                </p>
+            </div>
+
+
+
+            <h4 style="margin-top: 23px"> <strong>Instrucciones Generales</strong> </h4>
+            <p style="text-align:justify">
+                En esta vista de administrador podrá gestionar los usuarios y las respuesta a los formularios que han dado los distintos participantes, por lo tanto, debe ejercer su
+                deber de confidencialidad el cual está definido en la <i> <a href="http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?param1=NRTC&nValor1=1&nValor2=70975&nValor3=85989&strTipM=TC">Ley Nº 8968: Protección de la Persona frente al tratamiento de sus datos personales</i></a>
+                como la obligación de los responsables de bases de datos, personal a su cargo y del personal de la Agencia de Protección de Datos de los Habitantes
+                (Prodhab), de guardar la confidencialidad con ocasión del ejercicio de las facultades dadas por esta ley, principalmente cuando se acceda a información
+                sobre datos personales y sensibles. Esta obligación perdurará aun después de finalizada la relación con la base de datos.
+            </p>
+
+
+            <div style="padding-top: 50px; margin:auto">
+                <div id="formularios" class="row">
+                    <div class="column" style="background-color:#204051; ">
+                        Panel de administración de usuarios, formularios y preguntas
+                        <div style="position:absolute;bottom: 7px; right:10px;">
+                            <button type="button" class="btn btn-info btn-sm"> @Html.ActionLink("Ir a..","CRUD")</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

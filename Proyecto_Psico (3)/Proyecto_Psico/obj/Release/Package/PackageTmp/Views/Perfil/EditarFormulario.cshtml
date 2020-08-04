@@ -1,0 +1,57 @@
+﻿@model Proyecto_Psico.Models.CrudModels.TablaFormulario
+
+@{
+    ViewBag.Title = "Editar Formulario";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditarFormulario</title>
+</head>
+<body>
+
+    <h2>@ViewBag.Title</h2>
+
+
+
+    @using (Html.BeginForm("EditarFormulario", "Perfil", FormMethod.Post))
+    {
+        <div class="row">
+
+
+            <div class="col-md-12">
+
+                @Html.LabelFor(d => d.Idformulario)
+                @Html.TextBoxFor(d => d.Idformulario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Idformulario, null, new { @class = "danger" })
+                <br />
+
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "danger" })
+                <br />
+
+            </div>
+            <br />
+
+            <div style="text-align:right">
+
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+
+            </div>
+
+        </div>
+
+    }
+
+    <br />
+    <div style="text-align:left">
+
+        <a class="btn btn-primary" href="CRUD" role="button">Regresar</a>
+
+    </div>
+</body>
+</html>

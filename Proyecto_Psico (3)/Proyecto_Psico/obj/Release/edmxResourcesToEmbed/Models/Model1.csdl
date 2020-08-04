@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PsicologiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FORMULARIO">
+    <Key>
+      <PropertyRef Name="Idformulario" />
+    </Key>
+    <Property Name="Idformulario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PREGUNTA">
+    <Key>
+      <PropertyRef Name="Idpregunta" />
+    </Key>
+    <Property Name="Idpregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idformulario" Type="Int32" Nullable="false" />
+    <Property Name="Pregunta1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Idrespuesta" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RESPUESTA">
+    <Key>
+      <PropertyRef Name="Idrespuesta" />
+    </Key>
+    <Property Name="Idrespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idusuario" Type="Int32" Nullable="false" />
+    <Property Name="Respuesta1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="Idusuario" />
+    </Key>
+    <Property Name="Idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idtipousuario" Type="Int32" Nullable="false" />
+    <Property Name="Cedula" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ultimavez" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Correo" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPOUSUARIO">
+    <Key>
+      <PropertyRef Name="Idusuario" />
+      <PropertyRef Name="Tipousuario1" />
+    </Key>
+    <Property Name="Idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipousuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PsicologiaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FORMULARIOS" EntityType="Self.FORMULARIO" />
+    <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTA" />
+    <EntitySet Name="RESPUESTAS" EntityType="Self.RESPUESTA" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIO" />
+    <EntitySet Name="TIPOUSUARIOs" EntityType="Self.TIPOUSUARIO" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,1430 @@
+﻿@model Proyecto_Psico.Models.Formus
+
+
+
+@{
+    ViewBag.Title = "form2";
+}
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<link href="~/Styles/index2.css" rel="stylesheet" />*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Cuestionario de estrés</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            var getMax = function () {
+                return $(document).height() - $(window).height();
+            }
+
+            var getValue = function () {
+                return $(window).scrollTop();
+            }
+
+            if ('max' in document.createElement('progress')) {
+                // Browser supports progress element
+                var progressBar = $('progress');
+
+                // Set the Max attr for the first time
+                progressBar.attr({ max: getMax() });
+
+                $(document).on('scroll', function () {
+                    // On scroll only Value attr needs to be calculated
+                    progressBar.attr({ value: getValue() });
+                });
+
+                $(window).resize(function () {
+                    // On resize, both Max/Value attr needs to be calculated
+                    progressBar.attr({ max: getMax(), value: getValue() });
+                });
+            }
+            else {
+                var progressBar = $('.progress-bar'),
+                    max = getMax(),
+                    value, width;
+
+                var getWidth = function () {
+                    // Calculate width in percentage
+                    value = getValue();
+                    width = (value / max) * 100;
+                    width = width + '%';
+                    return width;
+                }
+
+                var setWidth = function () {
+                    progressBar.css({ width: getWidth() });
+                }
+
+                $(document).on('scroll', setWidth);
+                $(window).on('resize', function () {
+                    // Need to reset the Max attr
+                    max = getMax();
+                    setWidth();
+                });
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $(document).ready(function () {
+
+            $('#flat').addClass("active");
+            $('#progressBar').addClass('flat');
+
+            $('#flat').on('click', function () {
+                $('#progressBar').removeClass().addClass('flat');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#single').on('click', function () {
+                $('#progressBar').removeClass().addClass('single');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#multiple').on('click', function () {
+                $('#progressBar').removeClass().addClass('multiple');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+
+            $('#semantic').on('click', function () {
+                $('#progressBar').removeClass().addClass('semantic');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+                alert('hello');
+            });
+
+            $(document).on('scroll', function () {
+
+                maxAttr = $('#progressBar').attr('max');
+                valueAttr = $('#progressBar').attr('value');
+                percentage = (valueAttr / maxAttr) * 100;
+
+                if (percentage < 49) {
+                    document.styleSheets[0].addRule('.semantic', 'color: red');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: red');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: red');
+                }
+                else if (percentage < 98) {
+                    document.styleSheets[0].addRule('.semantic', 'color: orange');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: orange');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: orange');
+                }
+                else {
+                    document.styleSheets[0].addRule('.semantic', 'color: green');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: green');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: green');
+                }
+            });
+
+        });
+    </script>
+
+    <style>
+import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+progress {
+  /* Positioning */
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  /* Dimensions */
+  width: 100%;
+  height: .25em;
+
+  /* Reset the apperance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* Get rid of the default border in Firefox/Opera. */
+  border: none;
+
+  /* For Firefox/IE10+ */
+  background-color: transparent;
+
+  /* For IE10+, color of the progress bar */
+  color: red;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+.flat::-webkit-progress-value {
+  background-color: red;
+}
+
+.flat::-moz-progress-bar {
+  background-color: red;
+}
+
+.single::-webkit-progress-value {
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(left, transparent, red);
+}
+
+.single::-moz-progress-bar {
+  background-color: transparent;
+  background-image: -moz-linear-gradient(left, transparent, red);
+}
+
+.multiple::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(-45deg,
+                               transparent 33%, rgba(0, 0, 0, .1) 33%,
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+                      -webkit-linear-gradient(left, green, red);
+}
+
+.multiple::-moz-progress-bar {
+  background-image: -moz-linear-gradient(-45deg,
+                               transparent 33%, rgba(0, 0, 0, .1) 33%,
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+                      -moz-linear-gradient(left, green, red);
+}
+
+.progress-container {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: .25em;
+  display: block;
+}
+
+.progress-bar {
+  background-color: red;
+  width: 50%;
+  display: block;
+  height: inherit;
+}
+
+    </style>
+
+
+</head>
+<body>
+    <progress value="0" id="progressBar">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+
+
+    <div class="bodyformularios">
+        <img src="~/Recursos/logos_Mesa de trabajo 1.png" alt="UH" style="width: 170px; height: 170px; float: right; margin-left: 15px;" />
+        <div style="        background-color: #f4f6ff;
+        padding-top: 50px;
+        padding-bottom: 25px;">
+            <h1 style="text-align: center; color: #0f4c75"><strong>Universidad Hispanoamericana</strong></h1>
+            <p style="text-align: center; margin-left: 3px">
+                En el cuestionario se presenta una serie de oraciones y/o preguntas. Usted debe marcar con una "X" el espacio de SI o NO, según sea
+                su caso. <i>ES IMPORTANTE QUE NO DEJE NINGUNA ORACION O PREGUNTA SIN CONTESTAR</i>, ya que esto no permitiría conocer realmente cómo
+                se encuentra usted. A la hora de responder, favor refiérase de un mes atrás al momento actual.
+            </p>
+        </div>
+
+
+        <div class="panel-heading text-center">
+            <h2 style="margin-top: 15px; color: #3b6978">Cuestionario sobre estrés Solano Beauregard</h2>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+
+            <div>
+                <div class="form-group">
+                    <label>Ha sentido calambres en el cuerpo.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v1, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v1, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Ha sentido molestias estomacales.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v2, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v2, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Al despertar siente tensa la cara o la mandíbula.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v3, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v3, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha notado sequedad en la boca.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v4, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v4, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Padece usted de jaqueca.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v5, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v5, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Siente débiles las rodillas al caminar.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v6, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v6, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Ha tenido dificultad, sin causa aparente, para hablar o pronunciar palabras.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v7, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v7, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido que las cosas que hace son difíciles o complicadas.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v8, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v8, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> A pesar de que oye bien, necesita que la repitan las cosas.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v9, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v9, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Sin hacer ejercicio físico, suda más de lo normal.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v10, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v10, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Siente dolores musculares.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v11, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v11, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se le dificulta concentrarse en lo que hace.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v12, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v12, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se le dificulta relajarse o estar tranquilo.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v13, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v13, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se le interrumpen las ideas o pensamientos fácilmente.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v14, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v14, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Siente que todo lo puede hacer, siempre y cuando usted tenga el control.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v15, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v15, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha tenido la sensación, sin causa alguna, de inquietud o desasosiego.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v16, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v16, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se le olvidan las cosas, se le dificulta recordar fechas, nombres, actividades.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v17, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v17, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Ha sentido molestias en el pecho.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v18, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v18, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha notado que le faltan las ideas más que antes.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v19, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v19, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha tenido sensaciones de miedo o susto.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v20, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v20, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido palpitaciones fuertes en el corazón.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v21, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v21, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se cansa más fácilmente que antes.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v22, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v22, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se le dificulta caminar o hacer ejercicio.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v23, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v23, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Le falta el apetito o siente desgano por la comida.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v24, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v24, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se ruboriza o "chilla" con facilidad.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v25, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v25, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido ardor en el estómago.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v26, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v26, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Pierde el hilo de la conversación.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v27, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v27, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div>
+                <div class="form-group">
+                    <label>Le brincan los músculos del pecho.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v28, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v28, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Ha sentido como un vacío en el estómago.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v29, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v29, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Ha tenido temblor en los párpados.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v30, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v30, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Padece de estreñimiento o de deposiciones muy espaciadas.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v31, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v31, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha estado de mal humor o muy irritable</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v32, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v32, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Tiene ideas o pensamientos que lo perturban.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v33, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v33, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Siente ganas de ir al baño más de lo normal.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v34, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v34, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Le falta la respiración o siente ahogo.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v35, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v35, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido, sin ninguna causa. adormecimiento en los brazos o manos.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v36, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v36, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se asusta con regularidad.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v37, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v37, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido dolor en espalda o cuello.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v38, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v38, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha tenido sensación de escalofríos súbitos.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v39, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v39, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Tiene ideas que no se apartan de su mente.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v40, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v40, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Le sudan, más de lo normal, las manos o los pies</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v41, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v41, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido que se le paralizan partes del cuerpo</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v42, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v42, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se distrae fácilmente</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v43, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v43, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se le inflaman las manos o pies</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v44, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v44, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Se despierta durante la noche</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v45, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v45, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido dolor de cabeza</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v46, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v46, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Piensa, antes de dormirse, en una misma cosa </label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v47, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v47, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Siente temor a algo sin saber por qué</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v48, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v48, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Piensa mucho las cosas antes de hacerlas  </label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v49, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v49, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se despierta cansado o fatigado</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v50, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v50, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Le cuesta concentrarse en lo que hace.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v51, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v51, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Puede estar quieto en un mismo lugar</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v52, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v52, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Siente pérdida de la memoria.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v53, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v53, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se marea con regularidad.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v54, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v54, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Se siente débil y con sueño.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v55, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v55, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Siente zumbidos o ruidos en los oídos.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v56, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v56, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha perdido peso más de lo normal.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v57, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v57, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Ha sentido, sin causa alguna, debilidad en algunas partes del cuerpo.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v58, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v58, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Le tiemblan las manos o partes del cuerpo regularmente.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v59, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v59, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label> Necesita hacerlas cosas más de una vez para estar seguro.</label>
+
+                    <div class="">
+                        <label>
+                            Si @Html.RadioButtonFor(m => m.v60, "Si", new { @Required = "Required" })
+
+                        </label>
+                        <br />
+                        <label>
+                            No @Html.RadioButtonFor(m => m.v60, "No", new { @Required = "Required" })
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="text-center">
+
+                <input class="btn btn-success" type="submit" value="Enviar" />
+            </div>
+        }
+
+
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+

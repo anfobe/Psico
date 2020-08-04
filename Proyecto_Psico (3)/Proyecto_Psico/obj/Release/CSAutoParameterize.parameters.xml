@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="PsicologiaEntities-Web.config Connection String" description="PsicologiaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-9K3O7TP;initial catalog=Psicologia;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lorax\\Documents\\Proyecto_Psico\\Proyecto_Psico\\Proyecto_Psico\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PsicologiaEntities']/@connectionString" />
+  </parameter>
+  <parameter name="PsicologiaEntities1-Web.config Connection String" description="PsicologiaEntities1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=lorax\SQLEXPRESS;initial catalog=Psicologia;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lorax\\Documents\\Proyecto_Psico\\Proyecto_Psico\\Proyecto_Psico\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PsicologiaEntities1']/@connectionString" />
+  </parameter>
+</parameters>

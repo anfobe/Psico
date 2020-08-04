@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PsicologiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FORMULARIOS">
+          <Key>
+            <PropertyRef Name="Idformulario" />
+          </Key>
+          <Property Name="Idformulario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PREGUNTAS">
+          <Key>
+            <PropertyRef Name="Idpregunta" />
+          </Key>
+          <Property Name="Idpregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Idformulario" Type="int" Nullable="false" />
+          <Property Name="Pregunta" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Idrespuesta" Type="int" />
+        </EntityType>
+        <EntityType Name="RESPUESTAS">
+          <Key>
+            <PropertyRef Name="Idrespuesta" />
+          </Key>
+          <Property Name="Idrespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Idusuario" Type="int" Nullable="false" />
+          <Property Name="Respuesta" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Psicologia.dbo.TIPOUSUARIO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TIPOUSUARIO">
+          <Key>
+            <PropertyRef Name="Idusuario" />
+            <PropertyRef Name="Tipousuario" />
+          </Key>
+          <Property Name="Idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipousuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="Idusuario" />
+          </Key>
+          <Property Name="Idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Idtipousuario" Type="int" Nullable="false" />
+          <Property Name="Cedula" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="Ultimavez" Type="nvarchar" MaxLength="50" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PsicologiaModelStoreContainer">
+          <EntitySet Name="FORMULARIOS" EntityType="Self.FORMULARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESPUESTAS" EntityType="Self.RESPUESTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPOUSUARIO" EntityType="Self.TIPOUSUARIO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TIPOUSUARIO].[Idusuario] AS [Idusuario], 
+    [TIPOUSUARIO].[Tipousuario] AS [Tipousuario]
+    FROM [dbo].[TIPOUSUARIO] AS [TIPOUSUARIO]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PsicologiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FORMULARIO">
+          <Key>
+            <PropertyRef Name="Idformulario" />
+          </Key>
+          <Property Name="Idformulario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PREGUNTA">
+          <Key>
+            <PropertyRef Name="Idpregunta" />
+          </Key>
+          <Property Name="Idpregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Idformulario" Type="Int32" Nullable="false" />
+          <Property Name="Pregunta1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Idrespuesta" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RESPUESTA">
+          <Key>
+            <PropertyRef Name="Idrespuesta" />
+          </Key>
+          <Property Name="Idrespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Idusuario" Type="Int32" Nullable="false" />
+          <Property Name="Respuesta1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Idusuario" />
+          </Key>
+          <Property Name="Idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Idtipousuario" Type="Int32" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ultimavez" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Correo" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPOUSUARIO">
+          <Key>
+            <PropertyRef Name="Idusuario" />
+            <PropertyRef Name="Tipousuario1" />
+          </Key>
+          <Property Name="Idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipousuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PsicologiaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FORMULARIOS" EntityType="Self.FORMULARIO" />
+          <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTA" />
+          <EntitySet Name="RESPUESTAS" EntityType="Self.RESPUESTA" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIO" />
+          <EntitySet Name="TIPOUSUARIOs" EntityType="Self.TIPOUSUARIO" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PsicologiaModelStoreContainer" CdmEntityContainer="PsicologiaEntities1">
+          <EntitySetMapping Name="FORMULARIOS">
+            <EntityTypeMapping TypeName="PsicologiaModel.FORMULARIO">
+              <MappingFragment StoreEntitySet="FORMULARIOS">
+                <ScalarProperty Name="Idformulario" ColumnName="Idformulario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PREGUNTAS">
+            <EntityTypeMapping TypeName="PsicologiaModel.PREGUNTA">
+              <MappingFragment StoreEntitySet="PREGUNTAS">
+                <ScalarProperty Name="Idpregunta" ColumnName="Idpregunta" />
+                <ScalarProperty Name="Idformulario" ColumnName="Idformulario" />
+                <ScalarProperty Name="Pregunta1" ColumnName="Pregunta" />
+                <ScalarProperty Name="Idrespuesta" ColumnName="Idrespuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESPUESTAS">
+            <EntityTypeMapping TypeName="PsicologiaModel.RESPUESTA">
+              <MappingFragment StoreEntitySet="RESPUESTAS">
+                <ScalarProperty Name="Idrespuesta" ColumnName="Idrespuesta" />
+                <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+                <ScalarProperty Name="Respuesta1" ColumnName="Respuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="PsicologiaModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+                <ScalarProperty Name="Idtipousuario" ColumnName="Idtipousuario" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Ultimavez" ColumnName="Ultimavez" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOUSUARIOs">
+            <EntityTypeMapping TypeName="PsicologiaModel.TIPOUSUARIO">
+              <MappingFragment StoreEntitySet="TIPOUSUARIO">
+                <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+                <ScalarProperty Name="Tipousuario1" ColumnName="Tipousuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

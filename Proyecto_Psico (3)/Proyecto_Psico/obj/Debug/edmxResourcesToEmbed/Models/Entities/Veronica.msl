@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PsicologiaModel1StoreContainer" CdmEntityContainer="PsicologiaEntities2">
+    <EntitySetMapping Name="FORMULARIOS">
+      <EntityTypeMapping TypeName="PsicologiaModel1.FORMULARIOS">
+        <MappingFragment StoreEntitySet="FORMULARIOS">
+          <ScalarProperty Name="Idformulario" ColumnName="Idformulario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PREGUNTAS">
+      <EntityTypeMapping TypeName="PsicologiaModel1.PREGUNTAS">
+        <MappingFragment StoreEntitySet="PREGUNTAS">
+          <ScalarProperty Name="Idpregunta" ColumnName="Idpregunta" />
+          <ScalarProperty Name="Idformulario" ColumnName="Idformulario" />
+          <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+          <ScalarProperty Name="Idrespuesta" ColumnName="Idrespuesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESPUESTAS">
+      <EntityTypeMapping TypeName="PsicologiaModel1.RESPUESTAS">
+        <MappingFragment StoreEntitySet="RESPUESTAS">
+          <ScalarProperty Name="Idrespuesta" ColumnName="Idrespuesta" />
+          <ScalarProperty Name="Idpregunta" ColumnName="Idpregunta" />
+          <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="PsicologiaModel1.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+          <ScalarProperty Name="Idtipousuario" ColumnName="Idtipousuario" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Ultimavez" ColumnName="Ultimavez" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOUSUARIO">
+      <EntityTypeMapping TypeName="PsicologiaModel1.TIPOUSUARIO">
+        <MappingFragment StoreEntitySet="TIPOUSUARIO">
+          <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+          <ScalarProperty Name="Tipousuario1" ColumnName="Tipousuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
